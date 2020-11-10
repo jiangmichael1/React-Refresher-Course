@@ -37,7 +37,9 @@ class App extends Component {
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
         <UserOutput 
-          userName={this.state.userName} />
+          userName={this.state.userName} 
+          click={this.switchNameHandler.bind(this, 'Mike')}
+        />
         <UserOutput 
           userName={this.state.userName} 
           click={this.switchNameHandler.bind(this, 'Lis')}
