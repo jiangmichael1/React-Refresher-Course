@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import UserOutput from './UserOutput';
-import UserInput from './UserInput'
+import UserOutput from './UserOutput/UserOutput';
+import UserInput from './UserInput/UserInput'
 
 
 class App extends Component {
   state = {
-    name: "Max"
+    userName: "Max"
   }
 
   switchNameHandler = (newName) => {
     this.setState({
-      name: newName
-    })
-  }
+      userName: newName
+    });
+  };
 
   nameHandler = (e) => {
     this.setState({
-      name: e.target.value
-    })
-  }
+      userName: e.target.value
+    });
+  };
 
   render() {
     return (
@@ -36,14 +36,15 @@ class App extends Component {
           <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
-        <UserOutput name={this.state.name} />
         <UserOutput 
-          name={this.state.name} 
+          userName={this.state.userName} />
+        <UserOutput 
+          userName={this.state.userName} 
           click={this.switchNameHandler.bind(this, 'Lis')}
         />
         <UserInput 
           changed={this.nameHandler} 
-          name={this.state.name}
+          name={this.state.userName}
         />
 
       </div>
