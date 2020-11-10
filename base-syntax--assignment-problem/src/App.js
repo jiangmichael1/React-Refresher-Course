@@ -6,7 +6,13 @@ import UserInput from './UserInput'
 
 class App extends Component {
   state = {
-    name: ""
+    name: "Max"
+  }
+
+  switchNameHandler = (newName) => {
+    this.setState({
+      name: newName
+    })
   }
 
   nameHandler = (e) => {
@@ -31,7 +37,14 @@ class App extends Component {
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
         <UserOutput name={this.state.name} />
-        <UserInput changed={this.nameHandler} />
+        <UserOutput 
+          name={this.state.name} 
+          click={this.switchNameHandler.bind(this, 'Lis')}
+        />
+        <UserInput 
+          changed={this.nameHandler} 
+          name={this.state.name}
+        />
 
       </div>
     );
